@@ -18,22 +18,22 @@ export default [
         ecmaVersion: 2020,
         sourceType: 'module',
         project: './tsconfig.json',
-        tsconfigRootDir: __dirname
-      }
+        tsconfigRootDir: __dirname,
+      },
     },
     plugins: {
       '@typescript-eslint': tsPlugin,
-      prettier: prettierPlugin
+      prettier: prettierPlugin,
     },
     rules: {
-      'prettier/prettier': 'error'
-    }
+      'prettier/prettier': 'error',
+    },
   },
 
   {
     files: ['src/**/*.js'],
     languageOptions: { ecmaVersion: 2020, sourceType: 'module' },
     plugins: { prettier: prettierPlugin },
-    rules: { 'prettier/prettier': 'error' }
-  }
+    rules: { 'prettier/prettier': 'error' },
+  },
 ];
