@@ -88,7 +88,7 @@ jobs:
 
       - name: Generate changelog
         run: |
-          npx conventional-changelog -p angular -i CHANGELOG.md -s -r 1
+          npm run changelog
 
       - name: Bump version and commit all changes
         id: bump
@@ -167,8 +167,8 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: v${{ needs.bump-version.outputs.new_version }}
-          name: Release v${{ needs.bump-version.outputs.new_version }}
+          tag_name: ${{ needs.bump-version.outputs.new_version }}
+          name: Release ${{ needs.bump-version.outputs.new_version }}
           generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
