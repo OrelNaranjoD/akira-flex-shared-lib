@@ -1,5 +1,5 @@
 {
-  "name": "@akirasoftware/flex-shared-lib",
+  "name": "@orelnaranjod/flex-shared-lib",
   "version": "1.0.0",
   "type": "module",
   "description": "Shared lib for AkiraFlex projects",
@@ -20,20 +20,14 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "coverage": "vitest run --coverage",
-    "release": "semantic-release",
     "lint": "eslint --config eslint.config.mjs --no-ignore \"src/**/*.{ts,js}\" --max-warnings=0",
     "lint:fix": "eslint --config eslint.config.mjs --no-ignore \"src/**/*.{ts,js}\" --fix",
     "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "prepare": "husky install"
+    "format:check": "prettier --check ."
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
-    "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/git": "^10.0.1",
-    "@semantic-release/github": "^11.0.4",
-    "@semantic-release/npm": "^12.0.2",
     "@typescript-eslint/eslint-plugin": "^8.40.0",
     "@typescript-eslint/parser": "^8.40.0",
     "@vitest/coverage-v8": "^3.2.4",
@@ -46,7 +40,6 @@
     "husky": "^9.1.7",
     "lint-staged": "^16.1.5",
     "prettier": "^3.6.2",
-    "semantic-release": "^24.2.7",
     "tsx": "^4.20.4",
     "typescript": "^5.9.2",
     "vitest": "^3.2.4"
@@ -64,7 +57,8 @@
     "dist"
   ],
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "registry": "https://npm.pkg.github.com/",
+    "access": "public"
   },
   "exports": {
     ".": "./dist/index.js",
