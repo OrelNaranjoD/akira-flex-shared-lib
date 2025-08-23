@@ -96,7 +96,7 @@ jobs:
         with:
           patch-wording: 'chore,docs,style,refactor,test,fix'
           minor-wording: 'feat'
-          major-wording: 'BREAKING CHANGE,major,breaking,!'
+          major-wording: 'BREAKING CHANGE,breaking,!'
           tag-prefix: 'v'
           default: ${{ github.event.inputs.release_type || 'patch' }}
           commit-message: |
