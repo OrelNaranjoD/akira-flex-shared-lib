@@ -100,9 +100,9 @@ jobs:
           tag-prefix: 'v'
           default: ${{ github.event.inputs.release_type || 'patch' }}
           commit-message: |
-            🚀 Release v{{version}} [skip ci]
+            🚀 Release {{version}} [skip ci]
 
-            - docs(changelog): update CHANGELOG.md for v{{version}}
+            - docs(changelog): update CHANGELOG.md for {{version}}
             - style: auto-fix linting and formatting issues
           push: true
         env:
@@ -150,11 +150,7 @@ jobs:
 
   create-release:
     needs: [bump-version, publish-npm]
-    if: >
-      success() && (
-        github.event.inputs.release_type == 'major' ||
-        github.event.inputs.release_type == 'minor'
-      )
+    if: success()
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -167,8 +163,8 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ needs.bump-version.outputs.new_version }}
-          name: Release ${{ needs.bump-version.outputs.new_version }}
+          tag_name: v${{ needs.bump-version.outputs.new_version }}
+          name: Release v${{ needs.bump-version.outputs.new_version }}
           generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
