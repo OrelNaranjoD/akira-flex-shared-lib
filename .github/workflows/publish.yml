@@ -144,7 +144,7 @@ jobs:
         run: npm run build
 
       - name: Publish package to GitHub Packages
-        run: npm publish --access=public
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.FLEX_LIB_TOKEN }}
 
@@ -163,8 +163,8 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: v${{ needs.bump-version.outputs.new_version }}
-          name: Release v${{ needs.bump-version.outputs.new_version }}
+          tag_name: ${{ needs.bump-version.outputs.new_version }}
+          name: Release ${{ needs.bump-version.outputs.new_version }}
           generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
