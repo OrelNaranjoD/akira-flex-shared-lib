@@ -181,16 +181,5 @@ jobs:
             });
             console.log(`Pull Request created: ${response.data.html_url}`);
 
-      - name: Approve Pull Request
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const { context, github } = require('@actions/github');
-            const prNumber = context.payload.inputs.pull_request_number;
-            await github.pulls.createReview({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              pull_number: prNumber,
-              event: 'APPROVE',
-              body: 'Automatically approved by workflow.'
-            });
+      - name: Remove direct push to main
+        run: echo "Direct push to main removed to comply with branch protection rules."
