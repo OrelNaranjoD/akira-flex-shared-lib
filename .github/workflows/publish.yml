@@ -92,7 +92,7 @@ jobs:
 
       - name: Bump version and commit all changes
         id: bump
-        uses: phips28/gh-action-bump-version@v11.0.4
+        uses: phips28/gh-action-bump-version@v11.0.7
         with:
           patch-wording: 'chore,docs,style,refactor,test,fix'
           minor-wording: 'feat'
