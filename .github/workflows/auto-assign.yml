@@ -9,7 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Assign PR to user
-        uses: kentaro-m/auto-assign-action@v1
+        uses: kentaro-m/auto-assign-action@v2.0.0
         with:
-          assignees: 'OrelNaranjoD'
-          token: ${{ secrets.GITHUB_TOKEN }}
+          configuration-path: '.github/auto_assign.yml'

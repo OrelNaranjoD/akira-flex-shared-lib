@@ -44,7 +44,6 @@ branch.
 
 - The `main` branch must be protected and require review before merging.
 - Keep branches synchronized: after each release ensure `develop` includes the changes from `main`.
-- Run `npm run changelog` before publishing to review accumulated changes.
 
 ---
 
@@ -72,7 +71,7 @@ gh pr create --base main --head develop --title "Merge develop into main" --body
 # NOTE: Stay on the PR page for review and approval for OrelNaranjoD
 
 # Sync develop with main after release if necessary
-git checkout develop
+git fetch --all
 git pull origin main
 
 # View commit history
