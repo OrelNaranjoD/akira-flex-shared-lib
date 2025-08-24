@@ -69,8 +69,7 @@ git push origin develop
 # Create PR to main
 gh pr create --base main --head develop --title "Merge develop into main" --body "Automated PR to merge changes from develop into main"
 
-# Stay on the PR page and assign an approver
-gh pr ass --reviewer OrelNaranjoD
+# NOTE: Stay on the PR page for review and approval for OrelNaranjoD
 
 # Sync develop with main after release if necessary
 git checkout develop
