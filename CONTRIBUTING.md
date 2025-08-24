@@ -55,6 +55,9 @@ git checkout develop
 # Update develop with remote changes
 git pull origin develop
 
+# Work in develop
+# Make your changes here
+
 # Stage changes and create a semantic commit
 git add .
 git commit -m "feat(AFS-101): add user DTO"
@@ -62,13 +65,11 @@ git commit -m "feat(AFS-101): add user DTO"
 # Push changes to develop
 git push origin develop
 
-# Merge develop into main to publish (create PR and merge)
-git checkout main
-git pull origin main
-git merge develop
+# Send PR for review and wait for approval
+# Create PR to main
+gh pr create --base main --head develop --title "Merge develop into main" --body "Automated PR to merge changes from develop into main"
 
-# Push changes to main (this triggers the Publish workflow)
-git push origin main
+# NOTE: Stay on the PR page for review and approval for OrelNaranjoD
 
 # Sync develop with main after release if necessary
 git checkout develop
