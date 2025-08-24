@@ -160,11 +160,37 @@ jobs:
         with:
           ref: main
 
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v1
+      - name: Create release branch
+        run: |
+          git checkout -b release/v${{ needs.bump-version.outputs.new_version }}
+          git push origin release/v${{ needs.bump-version.outputs.new_version }}
+
+      - name: Open Pull Request
+        uses: actions/github-script@v6
         with:
-          tag_name: ${{ needs.bump-version.outputs.new_version }}
-          name: Release ${{ needs.bump-version.outputs.new_version }}
-          generate_release_notes: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { context, github } = require('@actions/github');
+            const newVersion = context.payload.inputs.new_version;
+            const response = await github.pulls.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Release ${newVersion}`,
+              head: `release/v${newVersion}`,
+              base: 'main',
+              body: `This PR merges the release branch for version ${newVersion} into main.`
+            });
+            console.log(`Pull Request created: ${response.data.html_url}`);
+
+      - name: Approve Pull Request
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const { context, github } = require('@actions/github');
+            const prNumber = context.payload.inputs.pull_request_number;
+            await github.pulls.createReview({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: prNumber,
+              event: 'APPROVE',
+              body: 'Automatically approved by workflow.'
+            });
