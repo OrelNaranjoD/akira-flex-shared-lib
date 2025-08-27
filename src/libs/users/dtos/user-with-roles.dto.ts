@@ -1,5 +1,5 @@
-import { User } from '../interfaces/user.interface.js';
+import { UserEntity } from '../entities/user.entity.js';
 
-export interface UserWithRolesDto extends User {
+export interface UserWithRolesDto extends UserEntity {
   roles: string[];
 }
