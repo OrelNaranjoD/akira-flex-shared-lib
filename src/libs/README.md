@@ -8,28 +8,33 @@ and user management in the Akira Flex platform.
 - `tenancy/`
   - **interfaces/**: Base contracts for tenancies, modules, and platform users (e.g.,
     `admin-user.interface.ts`, `tenant.interface.ts`).
-  - **dtos/**: Data Transfer Objects for tenant and module operations (e.g.,
-    `create-tenant.dto.ts`).
+  - **entities/**: Entity interfaces for persistence (e.g., `tenant.entity.ts`,
+    `admin-user.entity.ts`, `tenant-module.entity.ts`, `module-feature.entity.ts`).
+  - **dtos/**: Data Transfer Objects for tenant and module operations (e.g., `create-tenant.dto.ts`,
+    `tenant-response.dto.ts`).
   - **enums/**: Enumerations for roles, billing cycles, permissions, etc. (`admin-role.enum.ts`,
     `billing-cycle.enum.ts`, `permission-type.enum.ts`).
   - **types/**: Auxiliary types for multi-tenant context and token options
     (`tenant-context.type.ts`, `token-options.type.ts`).
-  - **index.ts**: Exports all tenancy domain contracts.
+  - **index.ts**: Barrel file exporting all tenancy domain contracts and entities.
 
 - `auth/`
   - **interfaces/**: Contracts for payloads and authentication (`jwt-payload.interface.ts`).
   - **dtos/**: DTOs for login and authentication responses (`login-request.dto.ts`,
-    `login-response.dto.ts`).
-  - **index.ts**: Exports all auth domain contracts.
+    `login-response.dto.ts`, `register.dto.ts`, `token-response.dto.ts`).
+  - **index.ts**: Barrel file exporting all auth domain contracts.
 
 - `users/`
   - **interfaces/**: Base contracts for users and audit (`user.interface.ts`,
-    `user-audit-entry.interface.ts`).
+    `platform-user.interface.ts`, `tenant-user.interface.ts`, `user-audit-entry.interface.ts`).
+  - **entities/**: Entity interfaces for persistence (e.g., `user.entity.ts`,
+    `platform-user.entity.ts`, `tenant-user.entity.ts`).
   - **dtos/**: Enriched DTOs for views (`user-with-roles.dto.ts`).
-  - **enums/**: User status enumerations (`user-status.enum.ts`).
-  - **index.ts**: Exports all users domain contracts.
+  - **enums/**: User status and roles enumerations (`user-status.enum.ts`, `user-roles.enum.ts`).
+  - **constants/**: Role permissions (`role-permissions.const.ts`).
+  - **index.ts**: Barrel file exporting all users domain contracts and entities.
 
-- `index.ts`: Exports all global contracts from the library.
+- `index.ts`: Barrel file exporting all global contracts from the library.
 
 ## Folder Diagram
 
@@ -37,6 +42,7 @@ and user management in the Akira Flex platform.
 libs/
   tenancy/
     interfaces/
+    entities/
     dtos/
     enums/
     types/
@@ -47,8 +53,10 @@ libs/
     index.ts
   users/
     interfaces/
+    entities/
     dtos/
     enums/
+    constants/
     index.ts
   index.ts
 ```
