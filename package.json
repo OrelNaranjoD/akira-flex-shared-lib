@@ -60,7 +60,11 @@
     ]
   },
   "files": [
-    "dist"
+    "dist/cjs",
+    "dist/esm",
+    "dist/types",
+    "README.md",
+    "LICENSE"
   ],
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
