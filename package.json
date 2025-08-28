@@ -59,6 +59,8 @@
       "prettier --write"
     ]
   },
+  "types": "./dist/types/index.d.ts",
+  "main": "./dist/cjs/index.js",
   "files": [
     "dist/cjs",
     "dist/esm",
