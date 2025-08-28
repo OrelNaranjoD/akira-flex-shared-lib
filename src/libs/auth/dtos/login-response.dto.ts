@@ -1,4 +1,4 @@
-import { JwtPayload } from '../interfaces/jwt-payload.interface.js';
+import { JwtPayload } from '../interfaces/jwt-payload.interface';
 
 export interface LoginResponseDto {
   accessToken: string;

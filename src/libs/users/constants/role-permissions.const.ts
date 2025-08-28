@@ -1,4 +1,4 @@
-import { UserRoles } from '../enums/user-roles.enum.js';
+import { UserRoles } from '../enums/user-roles.enum';
 
 export const RolePermissions = {
   [UserRoles.SUPER_ADMIN]: ['*'],

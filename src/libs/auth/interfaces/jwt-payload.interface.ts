@@ -1,5 +1,5 @@
-import { AdminRole } from '../../tenancy/enums/admin-role.enum.js';
-import { JwtPayloadType } from '../enums/jwt-payload.enum.js';
+import { AdminRole } from '../../tenancy/enums/admin-role.enum';
+import { JwtPayloadType } from '../enums/jwt-payload.enum';
 
 export interface JwtPayload {
   sub: string;

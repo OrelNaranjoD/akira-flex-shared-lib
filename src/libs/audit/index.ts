@@ -1,1 +1,1 @@
-export * from './entities/audit-log.entity.js';
+export * from './entities/audit-log.entity';
